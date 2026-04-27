@@ -21,7 +21,7 @@
     .section-divider{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:3rem;padding:0 1.5rem}.section-divider::before,.section-divider::after{content:'';flex:1;max-width:80px;height:1px;background:var(--divider)}.section-divider .diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
     .story-section{background:linear-gradient(180deg,var(--navy-deep) 0%,var(--navy) 50%,var(--navy-deep) 100%);padding:5rem 1.5rem;max-width:800px;margin:0 auto}.story-text{text-align:center;font-size:clamp(1rem,2.5vw,1.1rem);color:var(--text-light);opacity:0.9;max-width:650px;margin:0 auto}.story-text p{margin-bottom:1.5rem}
     .section-title{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(1.5rem,4vw,2.25rem);color:var(--cream);text-align:center;margin-bottom:2rem;letter-spacing:0.03em;padding:0 1.5rem}
-    .photo-stream{width:100%}.photo-stream img{display:block;width:100%;height:auto;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease,transform 0.8s ease}.photo-stream img.visible{opacity:1;transform:translateY(0)}
+    .photo-stream{width:100%}.photo-stream img{display:block;width:100%;height:auto}
     .photo-heading{padding:4rem 1.5rem 2rem;text-align:center}
     footer{text-align:center;padding:3rem 1.5rem 4rem;border-top:1px solid var(--divider)}footer .footer-name{font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;color:var(--cream);margin-bottom:0.5rem}footer .footer-dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:0.9rem;color:var(--text-muted);letter-spacing:0.2em}footer .footer-heart{display:inline-block;margin-top:1.5rem;color:var(--gold);font-size:0.75rem;letter-spacing:0.1em}
     .lightbox{position:fixed;inset:0;background:rgba(10,15,25,0.97);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s ease;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}.lightbox.active{opacity:1;pointer-events:auto}.lightbox img{max-width:92vw;max-height:85vh;object-fit:contain;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}.lightbox-close{position:absolute;top:env(safe-area-inset-top,1rem);right:1rem;margin-top:1rem;width:44px;height:44px;background:none;border:1px solid rgba(201,169,110,0.4);border-radius:50%;color:var(--cream);font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
@@ -77,6 +77,10 @@
     <img src="images/optimized/optimized/IMG_4008.jpg" alt="" loading="lazy">
     <img src="images/optimized/optimized/b262ae79-cfe4-42eb-ab9b-3fda1a70c309.jpg" alt="" loading="lazy">
     <img src="images/optimized/optimized/IMG_5128.jpg" alt="" loading="lazy">
+    <img src="images/optimized/optimized/IMG_0114.jpg" alt="" loading="lazy">
+    <img src="images/optimized/optimized/IMG_0349.jpg" alt="" loading="lazy">
+    <img src="images/optimized/optimized/IMG_5258.jpg" alt="" loading="lazy">
+    <img src="images/optimized/optimized/IMG_7962.jpg" alt="" loading="lazy">
     <img src="images/optimized/optimized/IMG_8105.jpg" alt="" loading="lazy">
   </div>
   <footer>
@@ -90,7 +94,7 @@
   </div>
   <script>
     const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
-    document.querySelectorAll('.fade-in,.photo-stream img').forEach(el=>{observer.observe(el)});
+    document.querySelectorAll('.fade-in').forEach(el=>{observer.observe(el)});
     document.querySelectorAll('.photo-stream img').forEach(img=>{img.addEventListener('click',()=>{document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden'})});
     function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow=''}
     document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeLightbox()});
